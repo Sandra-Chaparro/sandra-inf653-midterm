@@ -15,7 +15,7 @@ $author = new Authors($db);
 $author->id = isset($_GET['id']) ? $_GET['id'] : die();
 
 $author->read_single();
-
+$author_arr;
 if($author->id === null){
   //No authors found
   $author_arr = array(
