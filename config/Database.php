@@ -6,7 +6,7 @@ class Database {
     $dbparts = parse_url($url);
     
     private $host = $dbparts['JAWSDB_HOST'];
-    private $db_name = $dbparts['JAWSDB_DB'];
+    private $db_name = ltrim($dbparts['JAWSDB_DB'], '/');
     private $username = $dbparts['JAWSDB_USERNAME'];
     private $password = $dbparts['JAWSDB_PASS'];
     private $conn;
