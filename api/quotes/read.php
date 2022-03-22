@@ -3,6 +3,8 @@ header('Access-Control-Allow-Origin: *'); // allow CORS
 header('Content-Type: application/json'); //returning JSON
 include_once '../../config/Database.php';
 include_once '../../models/Quotes.php';
+include_once '../../models/Authors.php';
+include_once '../../models/Categories.php';
 
 //Instantiate DB $ connect
 $database = new Database();
