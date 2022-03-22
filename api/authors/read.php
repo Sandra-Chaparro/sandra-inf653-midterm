@@ -18,7 +18,6 @@ $num = $result->rowCount();
 
 if($num > 0 ){
   $authors_arr = array();
-  $authors_arr['data'] = array();
 
   while($row = $result->fetch(PDO::FETCH_ASSOC)){
     extract($row);
@@ -28,7 +27,7 @@ if($num > 0 ){
       'author' => $author
     );
 
-    array_push($authors_arr['data'], $author_item);
+    array_push($authors_arr, $author_item);
 
   }
 
@@ -38,7 +37,7 @@ if($num > 0 ){
 }
 else{
   echo json_encode(
-    array('message' => 'No authors found')
+    array('message' => 'No Authors found')
   );
 }
 
