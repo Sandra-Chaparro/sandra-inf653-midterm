@@ -8,7 +8,7 @@ class Database {
     private $host = 'acw2033ndw0at1t7.cbetxkdyhwsb.us-east-1.rds.amazonaws.com';
     private $db_name = 'mrnpq02zo5ekan3h';
     private $username = 'qb9a5as9snhkq974';
-    private $password = $dbparts['pass'];
+    private $password = $dbparts['JAWSDB_PASS'];
     private $conn;
 
     //DB Connect
