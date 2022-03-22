@@ -5,10 +5,10 @@ class Database {
     $url = getenv('JAWSDB_URL');
     $dbparts = parse_url($url);
     
-    private $host = $dbparts['JAWSDB_HOST'];
+    private $host = $dbparts['host'];
     private $db_name = ltrim($dbparts['JAWSDB_DB'], '/');
-    private $username = $dbparts['JAWSDB_USERNAME'];
-    private $password = $dbparts['JAWSDB_PASS'];
+    private $username = $dbparts['user'];
+    private $password = $dbparts['pass'];
     private $conn;
 
     //DB Connect
