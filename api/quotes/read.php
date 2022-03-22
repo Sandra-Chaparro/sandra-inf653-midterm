@@ -7,10 +7,10 @@ include_once '../../models/Quotes.php';
 //Instantiate DB $ connect
 $database = new Database();
 $db = $database->connect();
-
-//Instantiate blog post object
 $quote = new Quotes($db);
 
+$quote->categoryId = isset($_GET['categoryId']) ? $GET['authorId'] : null;
+$quote->authorId = isset($_GET['authorId']) ? $GET['authorId'] : null;
 
 // query
 $result = $quote->read();
@@ -19,19 +19,26 @@ $num = $result->rowCount();
 
 if($num > 0 ){
   $quotes_arr = array();
-  $quotes_arr['data'] = array();
+  //$quotes_arr['data'] = array();
 
   while($row = $result->fetch(PDO::FETCH_ASSOC)){
     extract($row);
 
+    $author = new Authors($db);
+    $category = new Categories($db);
+    $author->id = $authorId;
+    $category->id = $categoryId;
+    $author->read_single();
+    $category->read_single();
+    
     $quote_item = array(
       'id' => $id,
       'quote' => $quote,
-      'author' => $author,
-      'category' => $category
+      'author' => $author->author,
+      'category' => $category->category
     );
 
-    array_push($quotes_arr['data'], $quote_item);
+    array_push($quotes_arr, $quote_item);
 
   }
 
