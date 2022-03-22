@@ -16,15 +16,16 @@ $author->id = isset($_GET['id']) ? $_GET['id'] : die();
 
 $author->read_single();
 
-if($author->id){
+if($author->id === null){
   //No authors found
   $author_arr = array(
-    'id' => $author->id,
-    'author' => $author->author
+    'message' => 'authorId Not found'
   );
 }
 else{
-  $author_arr = array('message' => 'authorId Not found');
+  $author_arr = array('id' => $author->id,
+    'author' => $author->author
+ );
 }
 
 echo json_encode($author_arr);
