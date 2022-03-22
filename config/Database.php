@@ -5,9 +5,9 @@ class Database {
     $url = getenv('JAWSDB_URL');
     $dbparts = parse_url($url);
     
-    private $host = 'acw2033ndw0at1t7.cbetxkdyhwsb.us-east-1.rds.amazonaws.com';
-    private $db_name = 'mrnpq02zo5ekan3h';
-    private $username = 'qb9a5as9snhkq974';
+    private $host = $dbparts['JAWSDB_HOST'];
+    private $db_name = $dbparts['JAWSDB_DB'];
+    private $username = $dbparts['JAWSDB_USERNAME'];
     private $password = $dbparts['JAWSDB_PASS'];
     private $conn;
 
