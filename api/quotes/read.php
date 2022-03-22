@@ -50,7 +50,7 @@ if($num > 0 ){
 }
 else{
   echo json_encode(
-    array('message' => 'No quotes found')
+    array('message' => 'No Quotes Found')
   );
 }
 
