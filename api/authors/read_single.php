@@ -19,11 +19,12 @@ $author_arr;
 if($author->id === null){
   //No authors found
   $author_arr = array(
-    'message' => 'authorId Not found'
+    'message' => "authorId Not found"
   );
 }
 else{
-  $author_arr = array('id' => $author->id,
+  $author_arr = array(
+    'id' => $author->id,
     'author' => $author->author
  );
 }
