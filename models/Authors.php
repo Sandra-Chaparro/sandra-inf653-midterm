@@ -75,6 +75,7 @@ class Authors{
 
         //Execute query
         if($stmt->execute()){
+            $this->id = $this->conn->lastInsertId();
             return true;
         }else{
   //Print error if something goes wrong
@@ -85,7 +86,7 @@ class Authors{
       
     }//create function
 
-    //Update Post
+    //Update Author
     public function update(){
         //Create query
         $query = 'UPDATE ' . 
