@@ -15,7 +15,7 @@ $author = new Authors($db);
 //Get the raw  data
 $data = json_decode(file_get_contents("php://input"));
 
-$author->author = $data->author;
+
 
 if($data->author == null){
     echo json_encode(
@@ -23,6 +23,7 @@ if($data->author == null){
     );
     die();
 }
+$author->author = $data->author;
 
 
 if($author->create()){
