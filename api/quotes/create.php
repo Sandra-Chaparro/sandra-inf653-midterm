@@ -32,7 +32,12 @@ $author->read_single();
 
 if($author->id == null){
     echo json_encode(
-        array('message' => 'authorId not Found')
+        array('message' => 'authorId Not Found')
+    );
+    die();
+}else if($category->id == null){
+echo json_encode(
+        array('message' => 'categoryId Not Found')
     );
     die();
 }
