@@ -50,7 +50,7 @@ if($quote->update()){
                 'id' => $quote->id,
                 'quote' => $quote->quote,
                 'authorId' => $quote->authorId,
-                'categoryId' => $quote->categoryId,
+                'categoryId' => $quote->categoryId
             )
             );
     }else{
