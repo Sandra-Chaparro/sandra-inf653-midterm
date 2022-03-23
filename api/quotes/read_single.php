@@ -29,7 +29,7 @@ $author->read_single();
 $quote_arr;
 
  if($quote->id === null){
-  $quote_arr = array('message' => 'No Quotes found');
+  $quote_arr = array('message' => 'No Quotes Found');
 }
 else{
 
