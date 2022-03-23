@@ -18,17 +18,15 @@ $data = json_decode(file_get_contents("php://input"));
 
 $category->id = $data->id;
 
-$result = $category->delete();
-
-if($result){
+if($category->delete()){
         echo json_encode(
-           $result
+           array('id' => $category->id)
         );
 
         
 } else{
     echo json_encode(
-        array('message' => 'category NO deleted')
+        array('message' => 'Category NO deleted')
     );
 }
 
