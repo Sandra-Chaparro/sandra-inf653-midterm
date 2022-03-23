@@ -28,7 +28,7 @@ if($result){
         
 } else{
     echo json_encode(
-        array('message' => 'quote NO deleted')
+        array('message' => 'No Quotes Found')
     );
 }
 
