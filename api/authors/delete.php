@@ -18,17 +18,15 @@ $data = json_decode(file_get_contents("php://input"));
 
 $author->id = $data->id;
 
-$result = $author->delete();
-
-if($result){
+if($author->delete()){
         echo json_encode(
-           $result
+           array('id' => $author->id)
         );
 
         
 } else{
     echo json_encode(
-        array('message' => 'author NO deleted')
+        array('message' => 'Author NO deleted')
     );
 }
 
