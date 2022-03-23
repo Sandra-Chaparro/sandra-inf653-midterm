@@ -163,8 +163,10 @@ class Quotes{
 
     //Execute query
     if($stmt->execute()){
-        $my_array = array('id' => $this->id);
-        return $my_array;
+        if($stmt->rowCount()==0){
+            $this->id = null;
+        }
+        return true;
     }
     
     //Print error if something goes wrong
