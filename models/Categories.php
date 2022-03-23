@@ -15,12 +15,9 @@ class Categories{
     }
 
     public function read(){
-        try{
         //Create query
-        $query = 'SELECT *
-                  FROM ' . $this->table. ' 
-                  ORDER BY 
-                  id ASC';
+        $query = 'SELECT id, category
+                  FROM ' . $this->table;
 
         //Prepare statement
         $stmt = $this->conn->prepare($query);
@@ -29,11 +26,6 @@ class Categories{
         $stmt->execute();
         
         return $stmt;
-    }//try curly bracket
-
-    catch(Exception $e){
-        return $e->getMessage();
-    }//catch curly bracket
   }//read method
 
     public function read_single(){
@@ -135,8 +127,7 @@ class Categories{
 
     //Execute query
     if($stmt->execute()){
-        $my_array = array('id' => $this->id);
-        return $my_array;
+        return true;
     }
 
     //Print error if something goes wrong
