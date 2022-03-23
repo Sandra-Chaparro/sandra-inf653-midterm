@@ -85,8 +85,6 @@ class Quotes{
 
         //clean data
         $this->quote = htmlspecialchars(strip_tags($this->quote));
-        $this->authorId = htmlspecialchars(strip_tags($this->authorId));
-        $this->categoryId = htmlspecialchars(strip_tags($this->categoryId));
 
         //Bind para
         $stmt->bindParam(':quote', $this->quote);
