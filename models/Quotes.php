@@ -70,7 +70,7 @@ class Quotes{
    
     }//read_single 
 
-    //Create Post
+    //Create Quote
     public function create(){
         //Create query
         $query = 'INSERT INTO ' . 
@@ -95,6 +95,7 @@ class Quotes{
 
         //Execute query
         if($stmt->execute()){
+            $this->id = $this->conn->lastInsertId();
             return true;
         }
 
@@ -103,7 +104,7 @@ class Quotes{
         return false;
     }
 
-    //Update Post
+    //Update Quote
     public function update(){
 
         //Create query
