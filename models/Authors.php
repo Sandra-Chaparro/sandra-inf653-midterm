@@ -133,8 +133,7 @@ class Authors{
 
     //Execute query
     if($stmt->execute()){
-        $my_array = array('id' => $this->id);
-        return $my_array;
+        return true;
     }
 
     //Print error if something goes wrong
