@@ -40,20 +40,17 @@ class Authors{
         id, 
         author
         FROM ' . $this->table. '
-        WHERE id = :id';
+        WHERE id = :id
+        LIMIT 0,1';
 
         $stmt = $this->conn->prepare($query);        //Prepare statement
-        $stmt->bindParam(':id', $this->id);        //Bind ID
+        $stmt->bindParam(1, $this->id);        //Bind ID
         $stmt->execute();//Execute query
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
-        if($row){
+   
             //Set  properties
             $this->id = $row['id'];
             $this->author = $row['author'];
-        } else{
-            $this->id = null;
-            $this->author = null;
-        }
         
     }
 
