@@ -18,9 +18,7 @@ $author->read_single();
 $author_arr;
 if($author->id === null){
   //No authors found
-  $author_arr = array(
-    'message' => "authorId Not Found"
-  );
+  $author_arr = array('message' => 'authorId Not Found');
 }
 else{
   $author_arr = array(
