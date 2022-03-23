@@ -16,16 +16,19 @@ $category->id = isset($_GET['id']) ? $_GET['id'] : die();
 
 $category->read_single();
 
-if($category->id){
+$category_array;
+if($category->id === null){
   //No authors found
-  $category_arr = array(
-    'id' => $category->id,
-    'category' => $category->category
+  $category_array = array(
+     'message' => 'categoryId Not Found'
   );
 }
 else{
-  $category_arr = array('message' => 'categoryId Not found');
+  $category_array = array(
+  'id' => $category->id,
+    'category' => $category->category
+    );
 }
 
-echo json_encode($category_arr);
+echo json_encode($category_array);
 
