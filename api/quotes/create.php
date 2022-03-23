@@ -29,7 +29,7 @@ $category->id = $data->categoryId;
 $category->read_single();
 
 $author = new Authors();
-$author->id = $data->$authorId;
+$author->id = $data->authorId;
 $author->read_single();
 
 if($author->id == null){
