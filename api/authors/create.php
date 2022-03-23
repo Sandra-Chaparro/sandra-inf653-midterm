@@ -1,5 +1,6 @@
 <?php
 header('Access-Control-Allow-Origin: *'); // allow CORS
+header('Access-Control-Allow-Methods: POST');
 header('Content-Type: application/json'); //returning JSON
 include_once '../../config/Database.php';
 include_once '../../models/Authors.php';
