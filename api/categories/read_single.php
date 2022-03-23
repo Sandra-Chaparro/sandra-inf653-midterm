@@ -30,5 +30,5 @@ else{
     );
 }
 
-echo json_encode($category_array);
+print_r(json_encode($category_array));
 
