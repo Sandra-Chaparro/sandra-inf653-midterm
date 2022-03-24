@@ -32,8 +32,8 @@ class Categories{
         $query = 'SELECT 
         id, 
         category
-        FROM ' . $this->table. ' 
-        WHERE id = :id
+        FROM ' . $this->table . ' 
+        WHERE id = ?
         LIMIT 0,1';
 
         //Prepare statement
@@ -72,6 +72,7 @@ class Categories{
 
         //Execute query
         if($stmt->execute()){
+            $this->id = $this->conn->lastInsertId();
             return true;
         }
 
