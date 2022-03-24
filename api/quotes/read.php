@@ -11,7 +11,7 @@ $database = new Database();
 $db = $database->connect();
 $quote = new Quotes($db);
 
-$quote->categoryId = isset($_GET['categoryId']) ? $GET['authorId'] : null;
+$quote->categoryId = isset($_GET['categoryId']) ? $GET['categoryId'] : null;
 $quote->authorId = isset($_GET['authorId']) ? $GET['authorId'] : null;
 
 // query
