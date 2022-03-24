@@ -8,20 +8,20 @@ if ($method === 'OPTIONS') {
 }
 
 if($method === 'PUT') {
-        require 'update.php';  
+        include_once 'update.php';  
 } 
 elseif($method === 'POST') {
-      require 'create.php'; 
+      include_once  'create.php'; 
 }
 elseif($method === 'GET') {
     if(isset( $_GET['id'] )) {
-        require 'read_single.php';
+        include_once  'read_single.php';
     } else {
-        require 'read.php';
+        include_once  'read.php';
         }   
     }
 elseif($method === 'DELETE') {
-    require 'delete.php';   
+    include_once  'delete.php';   
     }
   
 
