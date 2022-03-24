@@ -19,12 +19,14 @@ class Quotes{
     
         $queryF ='';
         
-        if($this->categoryId && $this->authorId){
+        if(isset($_GET[$this->categoryId]) && isset($_GET[$this->authorId])){
             $queryF = ' WHERE categoryId = ? AND authorId = ?';
-        }else if($this->categoryId){
+        }else if(isset($_GET[$this->categoryId])){
             $queryF = ' WHERE categoryId = ?';
-        }else if($this->authorId){
+        }else if(isset($_GET[$this->authorId])){
             $queryF = ' WHERE authorId = ?';
+        }else{
+                $queryF ='';
         }
         
         //Create query
