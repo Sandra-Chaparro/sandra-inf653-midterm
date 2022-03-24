@@ -25,8 +25,6 @@ class Quotes{
             $queryF = ' WHERE categoryId = ?';
         }else if(isset($_GET[$this->authorId])){
             $queryF = ' WHERE authorId = ?';
-        }else{
-                $queryF ='';
         }
         
         //Create query
