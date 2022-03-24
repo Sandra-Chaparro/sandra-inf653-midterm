@@ -62,7 +62,7 @@ class Quotes{
                   categoryId,
                   authorId
                   FROM ' . $this->table. ' 
-                  WHERE id = :id
+                  WHERE id = ?
                   LIMIT 0,1';
 
         //Prepare statement
