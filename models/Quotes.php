@@ -33,7 +33,7 @@ class Quotes{
                   quote,
                   categoryId,
                   authorId
-                  FROM ' . $this->table. $queryF ;
+                  FROM '. $this->table . trim($queryF) ;
 
         //Prepare statement
         $stmt = $this->conn->prepare($query);
