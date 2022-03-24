@@ -31,8 +31,8 @@ class Quotes{
         $query = 'SELECT
                   id, 
                   quote,
-                  authorId,
-                  categoryId
+                  categoryId,
+                  authorId
                   FROM ' . $this->table. $queryF ;
 
         //Prepare statement
@@ -49,10 +49,7 @@ class Quotes{
         
         //Execute query
         $stmt->execute();
-        return $stmt;
- 
-        return $e->getMessage();
- 
+        return $stmt; 
   }//read method
 
     public function read_single(){
