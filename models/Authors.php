@@ -40,7 +40,7 @@ class Authors{
         id, 
         author
         FROM ' . $this->table. '
-        WHERE id = :id
+        WHERE id = ?
         LIMIT 0,1';
 
         $stmt = $this->conn->prepare($query);        //Prepare statement
