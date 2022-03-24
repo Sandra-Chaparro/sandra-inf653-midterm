@@ -16,31 +16,43 @@ class Quotes{
         $this->conn = $db;
     }
     public function read(){
-        try{
+    
+        $queryF ='';
+        
+        if($this->categoryId && $this->authorId){
+            $queryF = ' WHERE categoryId = ? AND authorId = ?';
+        }else if($this->categoryId){
+            $queryF = ' WHERE categoryId = ?';
+        }else if($this->authorId){
+            $queryF = ' WHERE authorId = ?';
+        }
+        
         //Create query
         $query = 'SELECT
-                  q.id, 
-                  q.quote,
-                  a.author,
-                  c.category
-                  FROM ' . $this->table. ' q
-                  LEFT JOIN 
-                  authors a ON q.authorId = a.id
-                  LEFT JOIN 
-                  categories c ON q.categoryId = c.id
-                  ORDER BY 
-                  q.id ASC';
+                  id, 
+                  quote,
+                  authorId,
+                  categoryId
+                  FROM ' . $this->table. $queryF ;
 
         //Prepare statement
         $stmt = $this->conn->prepare($query);
 
+        if($this->categoryId && $this->authorId){
+            $stmt->bindParam(1, $this->categoryId);
+            $stmt->bindParam(2, $this->authorId);
+        }else if($this->categoryId){
+           $stmt->bindParam(1, $this->categoryId);
+        }else if($this->authorId){
+           $stmt->bindParam(1, $this->authorId);
+        }
+        
         //Execute query
         $stmt->execute();
         return $stmt;
-    }//try curly bracket
-    catch(Exception $e){
+ 
         return $e->getMessage();
-    }//catch curly bracket
+ 
   }//read method
 
     public function read_single(){
