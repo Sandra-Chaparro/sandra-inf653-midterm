@@ -24,11 +24,11 @@ if($data->authorId == null || $data->categoryId == null || $data->quote ==null){
     die();
 }
 
-$category = new Categories();
+$category = new Categories($db);
 $category->id = $data->categoryId;
 $category->read_single();
 
-$author = new Authors();
+$author = new Authors($db);
 $author->id = $data->authorId;
 $author->read_single();
 
